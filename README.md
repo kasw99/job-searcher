@@ -6,8 +6,8 @@
 > Don't hop between job boards — let your agent collect them.
 
 구직 중인가요? 잡코리아 갔다가, 사람인 갔다가, 원티드 갔다가, 점핏까지 — 매일 도는 일은
-AI 에이전트에게 시켜버리세요. 고용24 공식 API를 포함한 23개 채용 소스의 공고를 **하나의 정규화 JSON**으로
-모아줍니다.
+AI 에이전트에게 시켜버리세요. 개인 사용자가 이용할 수 있는 22개 공개 채용 소스와 승인된
+기업회원용 고용24 API 수집기를 **하나의 정규화 JSON**으로 모아줍니다.
 
 공고마다 **마감기한과 상태(구인중·마감임박·마감·상시)** 를 자동 정규화해, 지금 지원 가능한 공고만 골라보기 쉽습니다.
 
@@ -58,13 +58,14 @@ python3 skills/jobkorea-collect/collect.py --query "데이터 엔지니어" --li
 
 ## 어디를 수집하나 (23개)
 
-23개 모두 구현되어 있습니다. 고용24는 승인받은 API 키가 필요하고, 나머지는 로그인 없이 공개 소스만 읽습니다.
+23개 수집기가 구현되어 있습니다. 이 중 고용24는 승인된 기업회원만 사용할 수 있어 개인
+사용자용 소스 수에서는 제외하며, 나머지는 로그인 없이 공개 소스만 읽습니다.
 21개는 실제 공개 소스에 대해 라이브로 확인했고, 1개(로켓펀치)는 JS 전용/anti-bot
 페이지라 가짜 데이터 대신 `needs_browser`로 정직하게 종료합니다.
 
 | 플랫폼 | 스킬 | 상태 | 문서 |
 | --- | --- | --- | --- |
-| 고용24 (공식 Open API) | `work24-collect` | 🔑 API 키 필요 | [가이드](skills/work24-collect/SKILL.md) |
+| 고용24 (공식 Open API) | `work24-collect` | 🏢 승인된 기업회원 전용 | [가이드](skills/work24-collect/SKILL.md) |
 | 잡코리아 (JobKorea) | `jobkorea-collect` | ✅ 동작 | [가이드](skills/jobkorea-collect/SKILL.md) |
 | 사람인 (Saramin) | `saramin-collect` | ✅ 동작 | [가이드](skills/saramin-collect/SKILL.md) |
 | 원티드 (Wanted) | `wanted-collect` | ✅ 동작 (JSON API) | [가이드](skills/wanted-collect/SKILL.md) |
